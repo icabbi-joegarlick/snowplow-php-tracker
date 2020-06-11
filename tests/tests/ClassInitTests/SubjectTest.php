@@ -130,4 +130,12 @@ class SubjectTest extends TestCase {
         $this->assertArrayHasKey("tnuid", $settings);
         $this->assertEquals("tnuid", $settings["tnuid"]);
     }
+
+    public function testAddSessionId() {
+        $sessionId = '50656436-A73A-4C4C-BBDF-604BCAC8D907';
+        $this->subject->setSessionId($sessionId);
+        $settings = $this->getTrackerSettings();
+        $this->assertArrayHasKey("sid", $settings);
+        $this->assertEquals($sessionId, $settings["sid"]);
+    }
 }
